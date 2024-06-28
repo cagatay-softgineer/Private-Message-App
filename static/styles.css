@@ -1,0 +1,50 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+h1,
+h2 {
+    color: #343a40;
+}
+
+.form-group {
+    background-color: #ffffff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.chat-box {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.chat-messages {
+    height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    background-color: #e9ecef;
+}
+
+.chat-message {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.chat-message:nth-child(odd) {
+    background-color: #f1f1f1;
+}

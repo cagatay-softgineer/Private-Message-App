@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Chat Room</h1>
+        <div class="chat-box card shadow p-4 rounded">
+            <div id="messages" class="chat-messages"></div>
+            <form id="messageForm" class="input-group mt-3">
+                <input type="text" id="messageInput" class="form-control" placeholder="Type a message..." required>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        var socket = io();
+
+        document.getElementById('messageForm').onsubmit = function(e) {
+            e.preventDefault();
+            var msg = document.getElementById('messageInput').value;
+            socket.emit('message', msg);
+            document.getElementById('messageInput').value = '';
+            return false;
+        };
+
+        socket.on('message', function(data) {
+            var messages = document.getElementById('messages');
+            var message = document.createElement('div');
+            message.classList.add('chat-message');
+            message.textContent = data.user + ': ' + data.message;
+            messages.appendChild(message);
+            messages.scrollTop = messages.scrollHeight;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+[
+    { "name": "Server 1", "ip": "localhost:5000/login", "enabled": true, "content": "Login Server 1" },
+    { "name": "Server 2", "ip": "localhost:5000/signup", "enabled": true, "content": "Sign Up Server 2" },
+    { "name": "Server 3", "ip": "broken", "enabled": true, "content": "Broken Server 3" }
+]
